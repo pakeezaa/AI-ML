@@ -7,22 +7,22 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
 
-df=pd.read_csv('MinMaxScaler/wine_data.csv',header=None,usecols=[0,1,2])
+df=pd.read_csv('featureScaling/MinMaxScaler/wine_data.csv',header=None,usecols=[0,1,2])
 df.columns=['Class Label','Alcohol','Malic Acid']
 print(df.head())
 
 sns.kdeplot(df['Alcohol'])
-plt.savefig('MinMaxScaler/Alcohol.png',dpi=300,bbox_inches='tight')
+plt.savefig('featureScaling/MinMaxScaler/Alcohol.png',dpi=300,bbox_inches='tight')
 plt.show()
 
 
 sns.kdeplot(df['Malic Acid'])
-plt.savefig('MinMaxScaler/Malic_Acid.png',dpi=300,bbox_inches='tight')
+plt.savefig('featureScaling/MinMaxScaler/Malic_Acid.png',dpi=300,bbox_inches='tight')
 plt.show()
 
 color_dict={1:'red',2:'green',3:'blue'}
 sns.scatterplot(x=df['Alcohol'],y=df['Malic Acid'],hue=df['Class Label'],palette=color_dict)
-plt.savefig('MinMaxScaler/scatterplot.png',dpi=300,bbox_inches='tight')
+plt.savefig('featureScaling/MinMaxScaler/scatterplot.png',dpi=300,bbox_inches='tight')
 plt.show()
 #trai test split
 X_train,X_test,y_train,y_test=train_test_split(df.drop(['Class Label'],axis=1),df['Class Label'],test_size=0.3,random_state=0)
@@ -46,7 +46,7 @@ ax1.set_title('before Scaling')
 
 ax2.scatter(scaled_X_train['Alcohol'],scaled_X_train['Malic Acid'],c=y_train)
 ax2.set_title("After Scaling")
-plt.savefig('MinMaxScaler/Scatter.png',dpi=300,bbox_inches='tight')
+plt.savefig('featureScaling/MinMaxScaler/Scatter.png',dpi=300,bbox_inches='tight')
 plt.show()
 
 
@@ -60,7 +60,7 @@ sns.kdeplot(X_train['Malic Acid'],ax=ax1)
 ax2.set_title('After Scaling')
 sns.kdeplot(scaled_X_train['Alcohol'],ax=ax2)
 sns.kdeplot(scaled_X_train['Malic Acid'],ax=ax2)
-plt.savefig('MinMaxScaler/kdeplot_bef_aft.png',dpi=300,bbox_inches='tight')
+plt.savefig('featureScaling/MinMaxScaler/kdeplot_bef_aft.png',dpi=300,bbox_inches='tight')
 plt.show()
 
 

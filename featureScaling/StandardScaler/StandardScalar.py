@@ -6,7 +6,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
-df=pd.read_csv('FeatureScaling/StandardScaler/Social_Network_Ads.csv')
+df=pd.read_csv('featureScaling/StandardScaler/Social_Network_Ads.csv')
 #print(df.head(4))
 
 X=df.drop(['Purchased','Gender'],axis=1)
@@ -31,7 +31,7 @@ ax1.set_title("Before SCaling")
 
 ax2.scatter(scaled_X_train['Age'],scaled_X_train['EstimatedSalary'])
 ax2.set_title("After SCaling")
-plt.savefig('FeatureScaling/StandardScaler/scaling.png',dpi=300,bbox_inches='tight')
+plt.savefig('featureScaling/StandardScaler/scaling.png',dpi=300,bbox_inches='tight')
 plt.show()
 
 fig, (ax1,ax2)=plt.subplots(ncols=2,figsize=(12,5))
@@ -42,7 +42,7 @@ sns.kdeplot(X_train['EstimatedSalary'],ax=ax1)
 ax1.set_title('After Scaling')
 sns.kdeplot(scaled_X_train['Age'],ax=ax2)
 sns.kdeplot(scaled_X_train['EstimatedSalary'],ax=ax2)
-plt.savefig('FeatureScaling/StandardScaler/kdeplot.png',dpi=300,bbox_inches='tight')
+plt.savefig('featureScaling/StandardScaler/kdeplot.png',dpi=300,bbox_inches='tight')
 plt.show()
 
 #model
